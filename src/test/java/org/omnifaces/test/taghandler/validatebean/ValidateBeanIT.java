@@ -206,28 +206,28 @@ public class ValidateBeanIT extends OmniFacesIT {
 	@FindBy(id="validateNestedClassLevelActualWithMessageForViolating:command")
 	private WebElement validateNestedClassLevelActualWithMessageForViolatingCommand;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:0:number1")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:0:number1")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList0Number1;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:0:number1Message")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:0:number1Message")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList0Number1Message;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:0:number2")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:0:number2")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList0Number2;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:0:number2Message")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:0:number2Message")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList0Number2Message;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:1:number1")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:1:number1")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList1Number1;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:1:number1Message")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:1:number1Message")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList1Number1Message;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:1:number2")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:1:number2")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList1Number2;
 
-	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:list:1:number2Message")
+	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:base:0:list:1:number2Message")
 	private WebElement validateNestedListClassLevelWithMessageForViolatingList1Number2Message;
 
 	@FindBy(id="validateNestedListClassLevelWithMessageForViolating:formMessage")

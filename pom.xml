@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-	xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<prerequisites>
 		<maven>3.0.0</maven>
@@ -99,6 +97,19 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- Java EE 7 dependencies. -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -119,7 +130,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Test dependencies.	-->
+		<!-- Test dependencies. -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -146,7 +157,8 @@
 		<dependency>
 			<groupId>org.jboss.arquillian.graphene</groupId>
 			<artifactId>graphene-webdriver</artifactId>
-			<version>2.1.0.Final</version> <!-- Newer versions appear to intermittently fail in RequestGuard and not be fully compatible with websockets -->
+			<version>2.1.0.Final</version> <!-- Newer versions appear to intermittently fail in RequestGuard and not 
+				be fully compatible with websockets -->
 			<type>pom</type>
 			<scope>test</scope>
 		</dependency>
@@ -155,7 +167,7 @@
 	<dependencyManagement>
 		<dependencies>
 
-			<!-- Test dependencies.	-->
+			<!-- Test dependencies. -->
 			<dependency>
 				<groupId>org.jboss.arquillian</groupId>
 				<artifactId>arquillian-bom</artifactId>
@@ -324,31 +336,31 @@
 			</plugin>
 
 			<!-- Configure the jar with the javadoc. -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
-				<configuration>
-					<javadocVersion>${javadoc.version}</javadocVersion>
-					<notimestamp>true</notimestamp>
-					<splitindex>true</splitindex>
-					<doctitle>OmniFaces API documentation</doctitle>
-					<links>
-						<link>https://javaee.github.io/javaee-spec/javadocs/</link>
-					</links>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<additionalparam>-Xdoclint:none</additionalparam>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-javadoc-plugin</artifactId> -->
+<!-- 				<version>3.2.0</version> -->
+<!-- 				<configuration> -->
+<!-- 					<javadocVersion>${javadoc.version}</javadocVersion> -->
+<!-- 					<notimestamp>true</notimestamp> -->
+<!-- 					<splitindex>true</splitindex> -->
+<!-- 					<doctitle>OmniFaces API documentation</doctitle> -->
+<!-- 					<links> -->
+<!-- 						<link>https://javaee.github.io/javaee-spec/javadocs/</link> -->
+<!-- 					</links> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>attach-javadocs</id> -->
+<!-- 						<goals> -->
+<!-- 							<goal>jar</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<additionalparam>-Xdoclint:none</additionalparam> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 
 			<!-- Configure snapshot deployment to Sonatype. -->
 			<plugin>
@@ -367,7 +379,8 @@
 		<pluginManagement>
 			<plugins>
 
-				<!-- Make sure Eclipse itself also runs license format and JavaScript minifier during build. -->
+				<!-- Make sure Eclipse itself also runs license format and JavaScript 
+					minifier during build. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -451,8 +464,10 @@
 	</build>
 
 	<profiles>
-		<!-- NOTE: If Eclipse+M2E shows "Plugin execution not covered by lifecycle configuration" error in one of -->
-		<!-- below sections, then you need to add a default lifecycle mapping as instructed in M2E documentation: -->
+		<!-- NOTE: If Eclipse+M2E shows "Plugin execution not covered by lifecycle 
+			configuration" error in one of -->
+		<!-- below sections, then you need to add a default lifecycle mapping as 
+			instructed in M2E documentation: -->
 		<!-- https://www.eclipse.org/m2e/documentation/m2e-execution-not-covered.html#common-problems -->
 
 		<!-- WildFly integration test profile: mvn verify -P wildfly -->
@@ -598,7 +613,8 @@
 			<build>
 				<plugins>
 
-					<!-- Signing with GPG is a requirement for a release deployment to Maven central. -->
+					<!-- Signing with GPG is a requirement for a release deployment to Maven 
+						central. -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>

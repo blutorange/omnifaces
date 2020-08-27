@@ -29,13 +29,15 @@ import javax.validation.Valid;
 public class ValidateBeanITNestedListClassLevelBean {
 
 	@Valid
-	private List<ValidateBeanITEntity> entities;
+	private List<@Valid ValidateBeanITEntityList> entities;
 
 	@PostConstruct
 	public void init() {
 		entities = new ArrayList<>();
-		entities.add(new ValidateBeanITEntity());
-		entities.add(new ValidateBeanITEntity());
+		entities.add(new ValidateBeanITEntityList());
+		entities.get(0).setNestedList(new ArrayList<>());
+		entities.get(0).getNestedList().add(new ValidateBeanITEntity());
+		entities.get(0).getNestedList().add(new ValidateBeanITEntity());
 	}
 
 	public void action() {
@@ -47,7 +49,7 @@ public class ValidateBeanITNestedListClassLevelBean {
 		}
 	}
 
-	public List<ValidateBeanITEntity> getEntities() {
+	public List<ValidateBeanITEntityList> getEntities() {
 		return entities;
 	}
 

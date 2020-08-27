@@ -152,17 +152,17 @@ public final class Validators {
 				switch (kind) {
 					case BEAN:
 						if (node.getIndex() != null || node.getKey() != null || node.getName() != null) { // In Apache BVal these can be all null, this is then assumed to be the base itself.
-							base = resolveProperty(base, node);
+							base = resolveProperty(base, node, !iterator.hasNext());
 						}
 						break;
 
 					case CONTAINER_ELEMENT: // List, Map, Array, etc
-						base = resolveProperty(base, node);
+						base = resolveProperty(base, node, !iterator.hasNext());
 						break;
 
 					case PROPERTY:
 						if (iterator.hasNext() || (node.getIndex() != null || node.getKey() != null)) { // PROPERTY may not be the last one unless contained in a CONTAINER_ELEMENT (which has index or key).
-							base = resolveProperty(base, node);
+							base = resolveProperty(base, node, !iterator.hasNext());
 						}
 						break;
 
@@ -203,14 +203,20 @@ public final class Validators {
 
 	// Helpers --------------------------------------------------------------------------------------------------------
 
-	private static Object resolveProperty(Object base, Node node) {
+	private static Object resolveProperty(Object base, Node node, boolean last) {
 		if (node.getIndex() != null) {
-			return accessIndex(base, node);
+			base = accessIndex(base, node);
+//			if (last) {
+				return base;
+//			}
 		}
 		if (node.getKey() != null) {
-			return accessKey(base, node);
+			base = accessKey(base, node);
+//			if (last) {
+				return base;
+//			}
 		}
-		else if (node.getName() != null) {
+		if (node.getName() != null) {
 			return getBeanProperty(base, node.getName());
 		}
 		else {
